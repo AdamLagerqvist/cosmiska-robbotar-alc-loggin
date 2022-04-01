@@ -17,10 +17,25 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+                {% if user == undefined %}
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                {% endif %}
+                {% if user %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/secret">My profile{% if user %} ({{ user }}){% endif %}</a>
+                </li>
+                {% endif %}
             </ul>
+            {% if user %}
+            <form class="d-flex" action="/api/logout" method="post">
+                <button class="btn btn-primary" type="submit">Logout</button>
+            </form>
+            {% endif %}
         </div>
     </div>
 </nav>

@@ -1,20 +1,25 @@
 {% extends "layout.njk" %}
 {% block  content %}
 <main class="form-signin">
-  <form>
+  <form action="/api/register" method="post">
     <h1 class="h3 mb-3 fw-normal">Register new user</h1>
+    {% if response %}<div class="alert alert-danger" role="alert">{{response}}</div>{% endif %}
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="Username">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="user">
       <label for="floatingInput">Username</label>
     </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <div class="form-floating" style="">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
       <label for="floatingPassword">Password</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword2" placeholder="Confirm Password" name="password2">
+      <label for="floatingPassword2">Confirm Password</label>
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-    <a href="/loginö">Already have a user?</a>
+    <a href="/login">Already have a user?</a>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2037</p>
   </form>
 </main>
