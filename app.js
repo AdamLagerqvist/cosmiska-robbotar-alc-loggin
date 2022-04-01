@@ -28,6 +28,12 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true
 }));
+app.use(session({
+  secret: 'Bogus',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { sameSite: true }
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

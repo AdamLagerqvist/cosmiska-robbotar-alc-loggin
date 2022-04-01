@@ -9,7 +9,7 @@ router.get('/login', function(req, res, next) {
   res.render('login.njk', { title: 'login' });
 });
 router.get('/secret', function(req, res, next) {
-  res.render('secret.njk', { title: 'secret' });
+  res.render('secret.njk', { title: 'secret', user: req.session.user });
 });
 router.get('/register', function(req, res, next) {
   res.render('register.njk', { title: 'register' });
